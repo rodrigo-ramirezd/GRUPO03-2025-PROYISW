@@ -1,0 +1,21 @@
+<!-- translate_API/templates/translate.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Traductor</title>
+</head>
+<body>
+    <h1>Traductor EN → ES</h1>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="texto" rows="4" cols="50" placeholder="Ingresa tu texto en ingles..."></textarea><br>
+        <button type="submit">Traducir</button>
+    </form>
+
+    {% if translated %}
+        <h2>Traducción:</h2>
+        <p>{{ translated }}</p>
+    {% endif %}
+</body>
+</html>

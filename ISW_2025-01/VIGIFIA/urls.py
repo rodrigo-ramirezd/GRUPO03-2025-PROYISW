@@ -29,6 +29,7 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('summaries/', include('summaries.urls')),
     path('archive/', include('archive.urls')),
+    path('translate/', include('translate_API.urls')),
 ]
 
 if settings.DEBUG:
