@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'VIGIFIA',
     'enterSources',
     'authentication',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'blog',
     'summaries',
     'archive',
+    'translate_API',
 ]
 
 MIDDLEWARE = [
@@ -85,9 +87,9 @@ WSGI_APPLICATION = 'VIGIFIA.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sources',
+        'NAME': 'Sources',
         'USER': 'postgres',
-        'PASSWORD': 'apolo', #cambien la contraseña
+        'PASSWORD': '', #cambien la contraseña
         'HOST': 'localhost',
         'PORT': '5432',
     }
