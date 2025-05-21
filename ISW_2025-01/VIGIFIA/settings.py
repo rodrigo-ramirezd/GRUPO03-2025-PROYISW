@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-_w&pbvb)7z05ba6+mn&b-^i()#xyn102hnl0idj9yy0!zex=e_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'summaries',
     'archive',
     'translate_API',
+    #'doc_translate_API',
+    
 ]
 
 MIDDLEWARE = [
@@ -87,9 +89,9 @@ WSGI_APPLICATION = 'VIGIFIA.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Sources',
-        'USER': 'postgres',
-        'PASSWORD': '2008', #cambien la contraseña
+        'NAME': 'sources',
+        'USER': 'mono',
+        'PASSWORD': 'mono', #cambien la contraseña
         'HOST': 'localhost',
         'PORT': '5432',
     }

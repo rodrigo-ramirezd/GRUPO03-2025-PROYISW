@@ -30,6 +30,7 @@ urlpatterns = [
     path('summaries/', include('summaries.urls')),
     path('archive/', include('archive.urls')),
     path('translate/', include('translate_API.urls')),
+    # path('doctranslate/', include('doc_translate_API.urls')),
 ]
 
 if settings.DEBUG:
