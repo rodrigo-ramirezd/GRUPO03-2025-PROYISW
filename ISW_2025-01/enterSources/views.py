@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from enterSources.models import Sources, Categories, Cat_x_Source
 from enterSources.forms import Bulletin_request, Cat_request
+from django.contrib.auth.decorators import permission_required
 
 # Create your views here.
 def home(request):
@@ -10,6 +11,7 @@ def home(request):
         return render(request, "index.html")
     return redirect('login')
 
+@permission_required('enterSources.change_sources', raise_exception=True)
 def service(request):
     if request.method == 'POST':
         form1 = Bulletin_request(request.POST)
