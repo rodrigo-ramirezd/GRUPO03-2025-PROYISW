@@ -1,21 +1,13 @@
 # Reporte de Inspección Inicial - SonarCloud
 
-## Quality Issue 1 (fixes)
+## Quality Issue 1
 
-- **Archivo:** `translate_API/views.py`
-- **Línea:** 87
-- **Tipo:** Code Smell
-- **Severidad:** Major
-- **Descripción:** La función `process_translation()` tiene una complejidad ciclomática muy alta.
-- **Recomendación:** Refactorizar la función dividiéndola en funciones más pequeñas.
-- **Acción:** Será corregido en la siguiente iteración.
+- **Archivo:** `./ISW_2025-01/enterSources/forms.py`
 
-## Quality Issue 2 (fixed)
+## Quality Issue 2
 
-- **Archivo:** `summaries/utils.py`
-- **Línea:** 34
-- **Tipo:** Bug
-- **Severidad:** Critical
-- **Descripción:** Posible acceso a variable no inicializada.
-- **Recomendación:** Verificar inicialización antes de usar.
-- **Acción:** Corregido inmediatamente.
+- **Archivo:** `./ISW_2025-01/enterSources/templates/insert.html`
+
+## Quality Issue 3
+
+- **Archivo:** `./ISW_2025-01/enterSources/templates/index.html`
