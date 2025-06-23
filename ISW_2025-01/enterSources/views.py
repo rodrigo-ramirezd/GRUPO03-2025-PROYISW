@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import HttpResponse
 from enterSources.models import Sources, Categories, Cat_x_Source
-from enterSources.forms import Bulletin_request, Cat_request
+from enterSources.forms import BulletinRequest, CatRequest
 from django.contrib.auth.decorators import permission_required
 
 # Create your views here.
@@ -14,8 +14,8 @@ def home(request):
 @permission_required('enterSources.change_sources', raise_exception=True)
 def service(request):
     if request.method == 'POST':
-        form1 = Bulletin_request(request.POST)
-        form2 = Cat_request(request.POST)
+        form1 = BulletinRequest(request.POST)
+        form2 = CatRequest(request.POST)
         if form1.is_valid() and form2.is_valid():
 
             source = form1.save()
@@ -36,8 +36,8 @@ def service(request):
             messages.error(request, 'Revisa') # Messege needs to be changed
     else:
         messages.error(request, 'mensaje') # Messege needs to be changed
-        form1 = Bulletin_request()
-        form2 = Cat_request()
+        form1 = BulletinRequest()
+        form2 = CatRequest()
 
     
     return render(request, 'insert.html', {'form': form1, 'form_cat':form2})
