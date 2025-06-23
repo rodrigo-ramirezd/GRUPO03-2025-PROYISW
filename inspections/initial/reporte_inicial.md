@@ -35,6 +35,6 @@
 - **Severidad:** Medium Impact
 - **Descripción:** Prefer tag over ARIA role Web:S6819
 - **Recomendación:** Use <img> instead of the img role to ensure accessibility across all devices.
-- **Acción:** Corregir instanciando de manera correcta la imagen para asegurar la accesibilidad de la imagem.
+- **Acción:** Corregir instanciando de manera correcta la imagen para asegurar la accesibilidad de la imagen.
 
 ![Quality Issue 3](QualityIssue3.png)
