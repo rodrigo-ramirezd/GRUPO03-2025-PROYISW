@@ -1,57 +1,89 @@
 {% extends "base.html" %}
-{% block title %}Historial{% endblock %}
 {% load static %}
 
+{% block title %}Historial de Solicitudes{% endblock %}
+
 {% block styles %}
-    <style>
+<style>
+  h2 {
+      text-align: center;
+      color: #333;
+  }
 
-      .historial {
-        width: 745px;
-        height: 520px;
-        right: 10px;
-        bottom: 100px;
-        overflow-y: scroll;
-      }
+  .container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+  }
 
-      .indice {
-        width: 305px;
-        height: 470px;
-        padding: 10px;
-        overflow-y: scroll;
-      }
-      
-    </style>
+  .indice {
+    width: 300px;
+    max-height: 500px;
+    overflow-y: auto;
+    background-color: #dfeec6;
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .historial {
+    flex-grow: 1;
+    max-height: 500px;
+    overflow-y: auto;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #afbea1;
+  }
+
+  .header {
+    font-weight: bold;
+    margin-top: 20px;
+    color: #333;
+  }
+
+</style>
 {% endblock %}
 
 {% block content %}
 <main>
+  <h2>Historial de Solicitudes</h3>
   <div class="container">
+    <!-- Índice lateral -->
     <div class="indice">
-      <div class="header">Noviembre 2024</div>
-      <br>
-      <a href="https://yakkun.com/sm/zukan/n470" target="page">
-        <b>07/11/2024</b> Solicitud N.002
+      <div class="header">Mayo 2025</div>
+      <a onclick="mostrarDetalle('20/05/2025', 'Solicitud N.004', 'Texto traducido del archivo.docx')">
+        <b>20/05/2025</b> Solicitud N.004
       </a>
-      <br><hr>
+      <a onclick="mostrarDetalle('15/05/2025', 'Solicitud N.003', 'Texto original: Hello<br>Traducción: Hola')">
+        <b>15/05/2025</b> Solicitud N.003
+      </a>
 
-      <div class="header">Octubre 2024</div>
-      <br>
-      <a href="https://www.pc98.org/main.html" target="page">
-        <b>30/10/2024</b> Solicitud N.001
+      <div class="header">Abril 2025</div>
+      <a onclick="mostrarDetalle('29/04/2025', 'Solicitud N.002', 'Archivo PDF traducido correctamente.')">
+        <b>29/04/2025</b> Solicitud N.002
       </a>
-      <br><hr>
 
-      <div class="header">Historial</div>
-      <br>
-      <a href="{% url 'main_entry' %}" target="page">
-        <b> . . . </b>
+      <div class="header">Marzo 2025</div>
+      <a onclick="mostrarDetalle('11/03/2025', 'Solicitud N.001', 'Texto procesado: Welcome → Bienvenido')">
+        <b>11/03/2025</b> Solicitud N.001
       </a>
-      <hr>
     </div>
 
-    <div class="historial">
-      <!-- Aquí podrías agregar más contenido si lo deseas -->
+    <!-- Contenido de cada solicitud -->
+    <div class="historial" id="detalleSolicitud">
+      <p>Selecciona una solicitud en el índice para ver sus detalles aquí.</p>
     </div>
   </div>
 </main>
+
+<script>
+  function mostrarDetalle(fecha, titulo, descripcion) {
+    const contenedor = document.getElementById("detalleSolicitud");
+    contenedor.innerHTML = `
+      <h4>${titulo}</h4>
+      <p><strong>Fecha:</strong> ${fecha}</p>
+      <p>${descripcion}</p>
+    `;
+  }
+</script>
 {% endblock %}
