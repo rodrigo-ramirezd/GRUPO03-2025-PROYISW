@@ -3,11 +3,21 @@
 
 {% block styles %}
 <style>
+    h1 {
+        text-align: center;
+        color: #333;
+    }
 
-    body{
-        font-size: 15.5px;
+    .cont2 {
+        max-width: 1800px;
+        font-size: 15px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(233, 245, 204, 0.1);
+        margin: auto;
     }
 </style>
+
 {% endblock %}
 
 {% block content %}
@@ -16,10 +26,12 @@
 <h1>Enlaces y Resúmenes</h1>
 <ul>
     {% for enlace in enlaces %}
+        <div class="cont2">
         <li>
             <strong>URL:</strong> <a href="{{ enlace.link }}">{{ enlace.link }}</a><br>
             <strong>Resumen:</strong> {{ enlace.resumen }} <br><br>
         </li>
+        </div>
     {% endfor %}
 </ul>
 
