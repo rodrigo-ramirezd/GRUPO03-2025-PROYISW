@@ -77,3 +77,9 @@ El elemento SVG en la línea 63 fue corregido para incluir `aria-label="Warning"
 ### Evidencia
 
 ![Quality Fixed 3](QualityFixed3.png)
+
+## Reinspección final
+
+Se corrigió todos los Quality Issues presentes en el código del proyecto.
+### Evidencia
+![Quality Fixed](https://github.com/Ponquesitoo/A-D/blob/5634d463be06e7f8cc7b9bc11dc145b32b355c0c/Images/reinspeccion.png)
