@@ -1,30 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+<style>
+main {
+        padding-top: 8vh;
+        min-height: 70vh; 
+    }
+
+    .container {
+        max-width: 500px;
+        background-color: white;
+        font-size: 15px;
+        padding: 20px;
+        padding-top: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(233, 245, 204, 0.1);
+        margin: auto;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    label {
+        margin-top: 10px;
+        display: block;
+    }
+
+    input[type="text"], textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        background-color: #88ae4c;
+        color: #f0efb3;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    button:hover {
+        background-color: #f0efb3;
+        color: #88ae4c;
+    }
+</style>
+
+{% endblock %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Traductor Azure</title>
 </head>
+
+{% block content %}
 <body>
     <h1>Traductor con Azure Translate</h1>
     
-    <form method="post">
-        {% csrf_token %}
-        <label for="text">Texto a traducir:</label><br>
-        <textarea name="text" rows="5" cols="50">{{ request.POST.text }}</textarea><br><br>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <label for="text">Texto a traducir:</label><br>
+            <textarea name="text" rows="5" cols="50">{{ request.POST.text }}</textarea><br><br>
 
-        <label for="to_lang">Idioma destino (por ejemplo, 'es', 'en', 'fr'):</label><br>
-        <input type="text" name="to_lang" value="{{ request.POST.to_lang }}"><br><br>
+            <label for="to_lang">Idioma destino (por ejemplo, 'es', 'en', 'fr'):</label><br>
+            <input type="text" name="to_lang" value="{{ request.POST.to_lang }}"><br><br>
 
-        <button type="submit">Traducir</button>
-    </form>
+            <button type="submit">Traducir</button>
+        </form>
 
-    {% if translated_text %}
-        <h2>Texto traducido:</h2>
-        <p>{{ translated_text }}</p>
-    {% endif %}
+        {% if translated_text %}
+            <h2>Texto traducido:</h2>
+            <p>{{ translated_text }}</p>
+        {% endif %}
 
-    {% if error_message %}
-        <h3 style="color: red;">{{ error_message }}</h3>
-    {% endif %}
+        {% if error_message %}
+            <h3 style="color: red;">{{ error_message }}</h3>
+        {% endif %}
+    </div>
 </body>
 </html>
+{% endblock %}
