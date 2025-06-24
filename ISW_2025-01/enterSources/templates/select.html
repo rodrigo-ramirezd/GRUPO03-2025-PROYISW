@@ -1,35 +1,101 @@
 {% extends "base.html" %}
 {% block title %}Selección de Fuentes{% endblock %}
 
+{% block styles %}
+<style>
+    main {
+        padding-top: 8vh;
+        min-height: 70vh; 
+    }
+
+    .container {
+        max-width: 500px;
+        background-color: white;
+        font-size: 15px;
+        padding: 20px;
+        padding-top: 40px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(233, 245, 204, 0.1);
+        margin: auto;
+    }
+
+    .cont2{
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    label {
+        margin-top: 10px;
+        display: block;
+    }
+
+    input[type="text"], textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        background-color: #88ae4c;
+        color: #f0efb3;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    button:hover {
+        background-color: #f0efb3;
+        color: #88ae4c;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <main>
 
-<form method="post" action="">
-    {% csrf_token %}
-    <label for="category_name">Categoría:</label>
-    <input type="text" name="category_name" id="category_name" placeholder="Ingresa una categoría">
-    <button type="submit">Buscar</button>
-</form>
+<div class="container">
+<h1>Búsqueda de Fuentes</h1>
 
-<h2>Resultados:</h2>
-<table>
-    <thead>
-        <tr>
-            <th>Enlace</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for source in sources %}
-        <tr>
-            <td><a href="{{ source.link }}" target="_blank">{{ source.link }}</a></td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="1">No se encontraron resultados.</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+    <div class="cont2">
+    <form method="post" action="">
+        {% csrf_token %}
+        <label for="category_name">Categoría:</label>
+        <input type="text" name="category_name" id="category_name" placeholder="Ingresa una categoría">
+        <button type="submit">Buscar</button>
+    </form>
+    </div>
+
+    <div class="cont2">
+    <h2>Resultados:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Enlace</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for source in sources %}
+            <tr>
+                <td><a href="{{ source.link }}" target="_blank">{{ source.link }}</a></td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="1">No se encontraron resultados.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    
+</div>
 
 </main>
 {% endblock %}
