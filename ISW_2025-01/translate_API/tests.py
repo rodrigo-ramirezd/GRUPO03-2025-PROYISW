@@ -6,8 +6,8 @@ import os
 class AzureTranslateAPITestCase(unittest.TestCase):
     def setUp(self):
         self.endpoint = "https://api.cognitive.microsofttranslator.com/translate"
-        self.subscription_key = os.getenv("AZURE_TRANSLATE_KEY")  # Asegúrate de que esté seteada
-        self.location = os.getenv("AZURE_TRANSLATE_REGION")       # Ejemplo: "eastus"
+        self.subscription_key = os.getenv("AZURE_TRANSLATE_KEY")
+        self.location = os.getenv("AZURE_TRANSLATE_REGION")
         self.headers = {
             "Ocp-Apim-Subscription-Key": self.subscription_key,
             "Ocp-Apim-Subscription-Region": self.location,
